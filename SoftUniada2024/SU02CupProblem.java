@@ -10,6 +10,7 @@ public class SU02CupProblem {
 
         int n = Integer.parseInt(scanner.nextLine());
 
+        // top half full and partial cup
         for (int row = 0; row < (n / 2); row++) {
 
             for (int a = 1; a <= n + row; a++) {
