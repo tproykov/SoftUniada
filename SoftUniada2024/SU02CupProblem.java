@@ -24,17 +24,22 @@ public class SU02CupProblem {
             System.out.println();
         }
 
+        for (int row = 0; row < (n / 2) + 1; row++) {
 
-
-        
-        for (int d = 1; d <= n * 2; d++) {
-            System.out.print(".");
-        }
-        for (int e = 1; e <= n; e++) {
+            for (int d = 1; d <= n + (n / 2) + row; d++) {
+                System.out.print(".");
+            }
             System.out.print("#");
+            for (int e = 2 * n - 2 - row * 2; e >= 0; e--) {
+                System.out.print(".");
+            }
+            System.out.print("#");
+            for (int f = 1; f <= n + (n / 2) + row; f++) {
+                System.out.print(".");
+            }
+            System.out.println();
         }
-        for (int f = 1; f <= n * 2; f++) {
-            System.out.print(".");
-        }
+
+
     }
 }
