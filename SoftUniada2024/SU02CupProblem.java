@@ -17,26 +17,26 @@ public class SU02CupProblem {
             int midSizeHash = n * 3 - i * 2;
 
             StringBuilder row = new StringBuilder();
+
             row.append(".".repeat(sideSizeDots))
                     .append("#".repeat(midSizeHash))
                     .append(".".repeat(sideSizeDots));
 
-            if (i >= n / 2) {
+            if (i > n / 2) {
+                midSizeHash -= 2;
 
-
-
-
-                
+                row.append(".".repeat(sideSizeDots))
+                        .append("#")
+                        .append(".".repeat(midSizeHash))
+                        .append("#")
+                        .append(".".repeat(sideSizeDots));
             }
-
-
-
-
-
-
-
-
+            System.out.println(row.toString());
         }
+
+
+
+        
 
 
     }
