@@ -11,7 +11,7 @@ public class SU02CupProblem {
         int n = Integer.parseInt(scanner.nextLine());
 
         // top half full and partial cup
-        for (int i = 1; i <= n + 1; i++) {
+        for (int i = 0; i < n + 1; i++) {
 
             int sideSizeDots = n + i;
             int midSizeHash = n * 3 - i * 2;
@@ -22,7 +22,7 @@ public class SU02CupProblem {
                     .append("#".repeat(midSizeHash))
                     .append(".".repeat(sideSizeDots));
 
-            if (i > n / 2) {
+            if (i >= n / 2) {
                 midSizeHash -= 2;
                 row = new StringBuilder();
 
@@ -41,27 +41,31 @@ public class SU02CupProblem {
         // top of body
         for (int i = 1; i <= n / 2; i++) {
 
-            int sideSizeDots = n * 2 - 2;
-            int midSizeHash = n + 4;
-
-            StringBuilder row = new StringBuilder();
-
-            row.append(".".repeat(sideSizeDots))
-                    .append("#".repeat(midSizeHash))
-                    .append(".".repeat(sideSizeDots));
-
-            System.out.println(row);
+            cupBody(n);
         }
 
         // logo
         String logo = "D^A^N^C^E^";
-        int sideSizeDots = (n * 5 - logo.length()) / 2;
-        System.out.println(".".repeat(sideSizeDots) + logo + ".".repeat(sideSizeDots));
+        int sideSize = (n * 5 - logo.length()) / 2;
+        System.out.println(".".repeat(sideSize) + logo + ".".repeat(sideSize));
 
         // bottom of body
+        for (int i = 1; i <= n / 2 + 1; i++) {
 
+            cupBody(n);
+        }
+    }
 
+    private static void cupBody(int n) {
+        int sideSizeDots = n * 2 - 2;
+        int midSizeHash = n + 4;
 
-        
+        StringBuilder row = new StringBuilder();
+
+        row.append(".".repeat(sideSizeDots))
+                .append("#".repeat(midSizeHash))
+                .append(".".repeat(sideSizeDots));
+
+        System.out.println(row);
     }
 }
