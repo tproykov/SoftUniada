@@ -12,11 +12,11 @@ public class SU05ArithmeticProgression {
         int[] integerArray = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt)
                 .toArray();
 
-        int count = countArithmeticProgressions(integerArray);
+        int count = countArithmeticProgressions(integerArray); 
         System.out.println(count);
     }
 
-    // count the number of arithmetic progressions 
+    // count the number of arithmetic progressions
     public static int countArithmeticProgressions(int[] integerArray) {
 
         // iterate through all possible sub-arrays (combination of elements)
