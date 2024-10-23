@@ -16,7 +16,7 @@ public class SU05ArithmeticProgression {
         System.out.println(count);
     }
 
-    // count the number of arithmetic progressions
+    // count the number of arithmetic progressions 
     public static int countArithmeticProgressions(int[] integerArray) {
 
         // iterate through all possible sub-arrays (combination of elements)
@@ -28,7 +28,7 @@ public class SU05ArithmeticProgression {
                 }
             }
         }
-        return totalCountProgressions; 
+        return totalCountProgressions;
     }
 
     // check if a subsequence is an arithmetic progression
