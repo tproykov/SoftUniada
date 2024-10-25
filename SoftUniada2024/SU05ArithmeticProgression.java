@@ -30,7 +30,7 @@ public class SU05ArithmeticProgression {
                 }
             }
         }
-        return totalCountProgressions;
+        return totalCountProgressions; 
     }
 
     // check if a subsequence is an arithmetic progression
