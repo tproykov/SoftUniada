@@ -15,7 +15,7 @@ public class SU05ArithmeticProgression {
         int n = integerArray.length;
 
         int count = countArithmeticProgressions(integerArray, n);
-        System.out.println(count); 
+        System.out.println(count);   
     }
 
     // count the number of arithmetic progressions
