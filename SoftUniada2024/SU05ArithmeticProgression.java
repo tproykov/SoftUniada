@@ -27,7 +27,7 @@ public class SU05ArithmeticProgression {
         // iterate through all possible sub-arrays (combination of elements)
         int totalCountProgressions = 0;
         for (int i = 0; i < integerArray.length; i++) {
-            for (int j = i + 1; j < integerArray.length; j++) {
+            for (int j = 0; j < integerArray.length; j++) {
                 if (isArithmeticProgression(integerArray, i, j)) {
                     totalCountProgressions++;
                 }
@@ -38,10 +38,10 @@ public class SU05ArithmeticProgression {
 
     // check if a subsequence is an arithmetic progression
     public static boolean isArithmeticProgression(int[] array, int startIndex, int endIndex) {
-        if (endIndex - startIndex <= 2) return true;  // Single element or empty is trivially AP
+        if (endIndex - startIndex < 2) return true;  // Single element, empty and pair are AP
 
         int diff = array[startIndex + 1] - array[startIndex];
-        for (int i = startIndex + 1; i < endIndex - 1; i++) {
+        for (int i = startIndex + 1; i <= endIndex - 1; i++) {
             if (array[i + 1] - array[i] != diff) {
                 return false;  // If the difference between consecutive elements is not constant
             }
