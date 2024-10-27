@@ -1,5 +1,6 @@
 package SoftUniada2024;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,29 +22,33 @@ public class temp {
     // Count the number of arithmetic progressions
     public static int countArithmeticProgressions(int[] array) {
         int n = array.length;
+        int count = 1; // Empty subsequence
 
-        // Starting with 1 for the empty subsequence and n for each single element
-        int totalCountProgressions = 1 + n;
-
-        // Loop through each possible subarray (of length >= 2)
-        for (int start = 0; start < n; start++) {
-            for (int end = start + 1; end < n; end++) {
-                if (isArithmeticProgression(array, start, end)) {
-                    totalCountProgressions++;
+        // Generate all possible subsequences using bit manipulation
+        for (int mask = 1; mask < (1 << n); mask++) {
+            ArrayList<Integer> subsequence = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                if ((mask & (1 << i)) != 0) {
+                    subsequence.add(array[i]);
                 }
             }
+
+            if (isArithmeticProgression(subsequence)) {
+                count++;
+            }
         }
-        return totalCountProgressions;
+
+        return count;
     }
 
-    // Check if a given subarray forms an arithmetic progression
-    public static boolean isArithmeticProgression(int[] array, int start, int end) {
-        if (end - start < 1) return true;  // Single element or empty sequence
+    // Check if a list forms an arithmetic progression
+    private static boolean isArithmeticProgression(ArrayList<Integer> list) {
+        if (list.size() <= 1) return true;
+        if (list.size() == 2) return true;
 
-        int diff = array[start + 1] - array[start];
-        for (int i = start + 1; i < end; i++) {
-            if (array[i + 1] - array[i] != diff) {
-                return false;  // Difference doesn't match
+        for (int i = 1; i < list.size() - 1; i++) {
+            if ((list.get(i) - list.get(i-1)) != (list.get(i+1) - list.get(i))) {
+                return false;
             }
         }
         return true;
