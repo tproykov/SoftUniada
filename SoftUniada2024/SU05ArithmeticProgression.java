@@ -27,7 +27,7 @@ public class SU05ArithmeticProgression {
         // iterate through all possible sub-arrays (combination of elements)
         int totalCountProgressions = 0;
         for (int i = 0; i < integerArray.length; i++) {
-            for (int j = 0; j < integerArray.length; j++) {
+            for (int j = i + 1; j < integerArray.length; j++) {
                 if (isArithmeticProgression(integerArray, i, j)) {
                     totalCountProgressions++;
                 }
